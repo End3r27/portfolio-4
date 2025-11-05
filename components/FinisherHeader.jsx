@@ -16,7 +16,17 @@ export default function FinisherHeader({
     const injectScript = () => {
       if (injected || typeof document === 'undefined') return;
       injected = true;
-      const basePath = process.env.NODE_ENV === 'production' ? '/portfolio-4' : '';
+
+      // Get base path from current URL or use default
+      const getBasePath = () => {
+        if (typeof window === 'undefined') return '';
+        const path = window.location.pathname;
+        // If URL contains /portfolio-4/, extract it
+        const match = path.match(/^(\/portfolio-4)/);
+        return match ? match[1] : '';
+      };
+
+      const basePath = getBasePath();
       const trySources = [
         `${basePath}/vendor/finisher-header.es5.min.js`,
         'https://cdn.jsdelivr.net/npm/finisher-header@1.3.1/dist/finisher-header.es5.min.js',
