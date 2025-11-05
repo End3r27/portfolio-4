@@ -2,7 +2,7 @@ import './globals.css'
 import ClientLayout from '@/components/ClientLayout'
 
 export const metadata = {
-  title: 'LearnX - Modern Learning Platform',
+  title: 'Rylee\'s portfolio',
   description: 'Animated, high-impact landing page for an online learning platform.',
 }
 

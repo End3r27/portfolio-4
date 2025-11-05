@@ -16,8 +16,9 @@ export default function FinisherHeader({
     const injectScript = () => {
       if (injected || typeof document === 'undefined') return;
       injected = true;
+      const basePath = process.env.NODE_ENV === 'production' ? '/portfolio-4' : '';
       const trySources = [
-        '/vendor/finisher-header.es5.min.js',
+        `${basePath}/vendor/finisher-header.es5.min.js`,
         'https://cdn.jsdelivr.net/npm/finisher-header@1.3.1/dist/finisher-header.es5.min.js',
       ];
       let idx = 0;
